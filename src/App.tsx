@@ -1,34 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Provider, useSelector } from "react-redux";
 import { ConfigProvider } from "@arco-design/web-react";
-import { Locale } from "@arco-design/web-react/es/locale/interface";
-import { store, RootState } from "service/store";
-import { componentConf } from "theme/index";
-import Home from "views/home/index";
-import Auth from "views/auth/index";
+import { componentConf } from "theme/arcoConfig";
+import { useGlobalConf, getArcoLocale } from "utils/index";
+import { Home } from "views/home/index";
+import { Auth, SignIn, SignUp } from "views/auth/index";
 
 function App() {
-  const lang = useSelector<RootState, Locale>((state) => state.global.lang);
-  const isLogin = useSelector<RootState, boolean>(
-    (state) => state.global.isLogin,
-  );
-
-  useEffect(() => {
-    if (!isLogin) {
-      window.location.pathname = "/auth/login";
-    }
-  });
+  const lang = useGlobalConf().lang as string;
 
   return (
     <BrowserRouter>
-      <ConfigProvider locale={lang} componentConfig={componentConf}>
-        <Provider store={store}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="auth" element={<Auth />} />
-          </Routes>
-        </Provider>
+      <ConfigProvider
+        locale={getArcoLocale(lang)}
+        componentConfig={componentConf}
+      >
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="auth" element={<Auth />}>
+            <Route path="signin" element={<SignIn />} />
+            <Route path="signup" element={<SignUp />} />
+          </Route>
+        </Routes>
       </ConfigProvider>
     </BrowserRouter>
   );

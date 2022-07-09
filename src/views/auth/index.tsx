@@ -1,9 +1,3 @@
-import React from "react";
-
-export default function Auth() {
-  return (
-    <div>
-      <p>sign in</p>
-    </div>
-  );
-}
+export * from "./auth";
+export * from "./signin";
+export * from "./signup";

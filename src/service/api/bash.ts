@@ -55,7 +55,7 @@ const baseQueryWithAuth: BaseQueryFn<
 // api基础配置
 export const baseApi = createApi({
   reducerPath: "api",
-  tagTypes: ["user"],
+  tagTypes: ["userList"],
   baseQuery: baseQueryWithAuth,
   endpoints: () => ({}),
   keepUnusedDataFor: 5 * 60,

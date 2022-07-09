@@ -1,2 +1,2 @@
 export * from "./authSlice";
-export * from "./globalSlice";
+export * from "./userSlice";
