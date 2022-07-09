@@ -1,8 +1,8 @@
 import React from "react";
 import { Trigger } from "@arco-design/web-react";
 import { IconMoon, IconSun } from "@arco-design/web-react/icon";
+import { IconWrapper } from "components/icon/index";
 import { useGlobalConf } from "utils/index";
-import styles from "./styles/index.module.less";
 
 export function SettingTheme(props: { position: any }) {
   const { theme, setTheme } = useGlobalConf();
@@ -13,13 +13,23 @@ export function SettingTheme(props: { position: any }) {
   };
 
   return (
-    <div className={styles["icon-wrapper"]} onClick={handleClick}>
+    <div onClick={handleClick}>
       <Trigger
         position={props.position}
         trigger="hover"
         popup={() => <p>改变主题</p>}
       >
-        {theme ? <IconSun /> : <IconMoon />}
+        <div>
+          {theme ? (
+            <IconWrapper>
+              <IconSun />
+            </IconWrapper>
+          ) : (
+            <IconWrapper>
+              <IconMoon />
+            </IconWrapper>
+          )}
+        </div>
       </Trigger>
     </div>
   );

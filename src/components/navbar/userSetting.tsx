@@ -1,11 +1,13 @@
 import React from "react";
 import { IconUser } from "@arco-design/web-react/icon";
-import styles from "./styles/index.module.less";
+import { IconWrapper } from "components/icon/index";
 
 export function SettingUser() {
   return (
-    <div className={styles["icon-wrapper"]}>
-      <IconUser />
+    <div>
+      <IconWrapper>
+        <IconUser />
+      </IconWrapper>
     </div>
   );
 }

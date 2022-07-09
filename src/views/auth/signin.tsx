@@ -1,14 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { Form, Input, Checkbox, Button, Space } from "@arco-design/web-react";
-
 import { IconPhone, IconLock } from "@arco-design/web-react/icon";
-import styles from "./styles/sign.module.less";
+import { RootState, AppDispatch } from "service/store";
+import { setLogin, setUserInfo } from "service/states/index";
+import styles from "./styles/index.module.less";
 import wechat from "assets/wechat.svg";
 import qq from "assets/qq.svg";
 import weibo from "assets/weibo.svg";
 
 export function SignIn() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+
+  const isLogin = useSelector<RootState, boolean>(
+    (state) => state.user.isLogin,
+  );
+
+  useEffect(() => {
+    navigate("/");
+  }, [isLogin]);
+
   return (
     <div className={styles.sign}>
       <div>
@@ -21,8 +34,10 @@ export function SignIn() {
         <Form
           layout="vertical"
           size={"large"}
-          onSubmit={(value) => {
-            alert(value);
+          onSubmit={(value: { phone: string; password: string }) => {
+            console.log(`${value.phone} and ${value.password}`);
+            dispatch(setLogin(true));
+            dispatch(setUserInfo({ name: "wang", avatar: "", role: 2 }));
           }}
         >
           <Form.Item

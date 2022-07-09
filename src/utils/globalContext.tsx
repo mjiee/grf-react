@@ -6,7 +6,7 @@ interface GlobalConfig {
   setLang: (value: string) => void;
   theme: boolean; // 主题, dark模式: true, light模式: false
   setTheme: (value: boolean) => void;
-  width: number; // 屏幕宽度, 用于响应式组件
+  width: number; // 实时获取屏幕宽度
 }
 
 export const GlobalContext = createContext<GlobalConfig>({

@@ -1,10 +1,13 @@
 import React from "react";
 import { Space } from "@arco-design/web-react";
+import { useGlobalConf } from "utils/index";
 import { SettingNav } from "./setting";
 import styles from "./styles/index.module.less";
 import logo from "assets/logo.svg";
 
-export function Navbar() {
+export function NavBar() {
+  const width = useGlobalConf().width;
+
   return (
     <div className={styles.navbar}>
       <Space size={"medium"}>
@@ -13,7 +16,7 @@ export function Navbar() {
           {process.env.REACT_APP_NAME}
         </div>
       </Space>
-      <SettingNav />
+      <SettingNav isFold={width < 960} />
     </div>
   );
 }

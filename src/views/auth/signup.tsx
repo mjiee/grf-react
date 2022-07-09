@@ -14,7 +14,7 @@ import {
   IconCamera,
   IconUser,
 } from "@arco-design/web-react/icon";
-import styles from "./styles/sign.module.less";
+import styles from "./styles/index.module.less";
 import wechat from "assets/wechat.svg";
 import qq from "assets/qq.svg";
 import weibo from "assets/weibo.svg";
