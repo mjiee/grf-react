@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
-import { useNavigate, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { Space } from "@arco-design/web-react";
-import { RootState } from "service/store";
+import React from "react";
+//import { useNavigate, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+// import { useSelector } from "react-redux";
+// import { Space } from "@arco-design/web-react";
+// import { RootState } from "service/store";
 import { NavBar } from "components/navbar/index";
 import { SideBar } from "components/sidebar/index";
 import styles from "./styles/home.module.less";
 
 export function Home() {
-  const isLogin = useSelector<RootState, boolean>(
-    (state) => state.user.isLogin,
-  );
+  // const isLogin = useSelector<RootState, boolean>(
+  //   (state) => state.user.isLogin,
+  // );
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // useEffect(() => {
   //   if (isLogin) {

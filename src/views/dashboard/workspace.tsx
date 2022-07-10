@@ -1,9 +1,9 @@
 import React from "react";
 
-export function Mananger() {
+export function Workspace() {
   return (
     <div>
-      <div>mananger</div>
+      <div>Workspace</div>
     </div>
   );
 }

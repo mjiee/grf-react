@@ -37,7 +37,7 @@ export function SignIn() {
           onSubmit={(value: { phone: string; password: string }) => {
             console.log(`${value.phone} and ${value.password}`);
             dispatch(setLogin(true));
-            dispatch(setUserInfo({ name: "wang", avatar: "", role: 2 }));
+            dispatch(setUserInfo({ name: "wang", avatar: "", role: 3 }));
           }}
         >
           <Form.Item

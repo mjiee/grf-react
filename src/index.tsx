@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "service/store";
 import { ConfigProvider } from "utils/globalContext";
@@ -14,7 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <ConfigProvider>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ConfigProvider>
   </Provider>,
 );

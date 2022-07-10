@@ -1,6 +1,6 @@
 import React from "react";
 
-export function User() {
+export function UserList() {
   return (
     <div>
       <div>user</div>

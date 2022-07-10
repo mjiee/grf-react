@@ -1,2 +1,2 @@
-export * from "./dashboard"
-export * from "./monitor"
+export * from "./workspace";
+export * from "./monitor";
