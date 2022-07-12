@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import { Spin } from "@arco-design/web-react";
-import styles from "./utils/styles/lazyload.module.less";
+import styles from "./styles/lazyload.module.less";
 
-function LoadingComponent() {
+export default function Loading() {
   return (
     <div className={styles.spin}>
       <Spin />
@@ -10,11 +10,11 @@ function LoadingComponent() {
   );
 }
 
-export default function lazyload(path: string): React.ReactNode {
+export function lazyload(path: string) {
   const Element = lazy(() => import(path));
   return (
     <>
-      <Suspense fallback={<LoadingComponent />}>
+      <Suspense fallback={<Loading />}>
         <Element />
       </Suspense>
     </>

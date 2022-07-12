@@ -6,9 +6,9 @@ export default function Header() {
   return (
     <>
       <div className={styles.header}>
-        <div className={styles["header-icon"]}>
+        <span className={styles["header-icon"]}>
           <Avatar size={80}>某</Avatar>
-        </div>
+        </span>
         <div>
           <div className={styles.title}>用户名</div>
           <div className={styles.info}>开发部门</div>

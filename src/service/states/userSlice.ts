@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface UserInfo {
-  name: string;
-  avatar: string;
-  role: number; // super: 3, admin: 2, general: 1
+  name?: string;
+  avatar?: string;
+  role?: number; // super: 3, admin: 2, general: 1
+  describe?: string;
 }
 
 export interface UserState {
   isLogin: boolean; // 是否登陆
-  userInfo: UserInfo;
+  userInfo?: UserInfo;
 }
 
 // 网站主题和语言配置
