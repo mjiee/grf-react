@@ -7,13 +7,12 @@ import { ProductList } from "./views/product/index";
 import { ErrorPage } from "./views/error/index";
 
 export interface AppRouter {
-  name: string; // siderbar一级标题
-  title?: string; // siderbar二级标题
+  name: string; // siderbar标题
   path: string; // 路由路径
   element?: React.ReactNode; // 组件
   isLogin?: boolean; // 是否需要登陆
   userRole?: number; // 访问该组件需要的用户角色
-  isNotMunu?: boolean; // 是否不是siderbar菜单栏
+  isMenu?: boolean; // 是否为siderbar菜单栏
   children?: AppRouter[];
 }
 
@@ -24,62 +23,79 @@ export const appRoutes: AppRouter[] = [
     element: <Home />,
     children: [
       {
-        name: "Dashbord",
-        title: "工作台",
-        path: "dashboard/workspace",
-        element: <Workspace />,
+        name: "Dashboard",
+        path: "dashboard",
         isLogin: true,
-      },
-      {
-        name: "Dashbord",
-        title: "数据监控",
-        path: "dashboard/monitor",
-        element: <Monitor />,
-        isLogin: true,
-        userRole: 2,
+        isMenu: true,
+        children: [
+          {
+            name: "工作台",
+            path: "workspace",
+            element: <Workspace />,
+            isMenu: true,
+          },
+          {
+            name: "数据监控",
+            path: "monitor",
+            element: <Monitor />,
+            userRole: 2,
+            isMenu: true,
+          },
+        ],
       },
       {
         name: "UserList",
-        title: "用户列表",
-        path: "user/user",
-        element: <UserList />,
+        path: "user",
         isLogin: true,
-        userRole: 2,
+        isMenu: true,
+        children: [
+          {
+            name: "用户列表",
+            path: "user",
+            element: <UserList />,
+            userRole: 2,
+            isMenu: true,
+          },
+          {
+            name: "管理员列表",
+            path: "mananger",
+            element: <ManangerList />,
+            userRole: 3,
+            isMenu: true,
+          },
+        ],
       },
       {
-        name: "UserList",
-        title: "管理员列表",
-        path: "user/mananger",
-        element: <ManangerList />,
-        isLogin: true,
-        userRole: 3,
-      },
-      {
-        name: "ProductList",
-        title: "产品管理",
+        name: "Product",
         path: "product",
-        element: <ProductList />,
         isLogin: true,
-        userRole: 2,
+        isMenu: true,
+        children: [
+          {
+            name: "产品列表",
+            path: "product",
+            element: <ProductList />,
+            userRole: 3,
+            isMenu: true,
+          },
+        ],
       },
     ],
   },
   {
     name: "auth",
-    path: "auth",
+    path: "/auth",
     element: <Auth />,
     children: [
       {
         name: "signin",
         path: "signin",
         element: <SignIn />,
-        isNotMunu: true,
       },
       {
         name: "signup",
         path: "signup",
         element: <SignUp />,
-        isNotMunu: true,
       },
     ],
   },
@@ -87,6 +103,5 @@ export const appRoutes: AppRouter[] = [
     name: "error",
     path: "*",
     element: <ErrorPage />,
-    isNotMunu: true,
   },
 ];

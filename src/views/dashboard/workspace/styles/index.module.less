@@ -1,0 +1,29 @@
+@import "./text.module.less";
+
+@shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+@radius: 15px;
+
+.container() {
+  display: grid;
+  grid-column-gap: 5px;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.content {
+  .container();
+  grid-template-columns: 1.5fr 1fr;
+
+  &-box {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: @radius;
+    width: 95%;
+    background-color: var(--color-bg-1);
+    box-shadow: @shadow;
+  }
+}

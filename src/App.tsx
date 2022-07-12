@@ -1,5 +1,4 @@
-import React, { useMemo } from "react";
-// import { BrowserRouter, Routes, Route, useRoutes } from "react-router-dom";
+import React from "react";
 import { useRoutes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "./service/store";
@@ -8,14 +7,8 @@ import { componentConf } from "./theme/arcoConfig";
 import { useGlobalConf, getArcoLocale } from "./utils/index";
 import { appRoutes } from "./routes";
 import { getRouteObject } from "./utils/getRouteObject";
-// import { Home, Auth } from "views/layout/index";
-// import { Dashboard, Monitor } from "views/dashboard/index";
-// import { User, Mananger } from "views/user/index";
-// import { Product } from "views/product/index";
-// import { SignIn, SignUp } from "views/auth/index";
-// import { ErrorPage } from "views/error/index";
 
-function App() {
+export default function App() {
   const lang = useGlobalConf().lang as string;
 
   const isLogin = useSelector<RootState, boolean>(
@@ -25,40 +18,22 @@ function App() {
     (state) => state.user.userInfo.role,
   );
 
-  const routeElement = useRoutes(getRouteObject(isLogin, userRole, appRoutes));
-
   return (
     <ConfigProvider
       locale={getArcoLocale(lang)}
       componentConfig={componentConf}
     >
-      {routeElement}
+      <AppRoute isLogin={isLogin} userRole={userRole} />
     </ConfigProvider>
   );
-
-  //   return (
-  //     <BrowserRouter>
-  //       <ConfigProvider
-  //         locale={getArcoLocale(lang)}
-  //         componentConfig={componentConf}
-  //       >
-  //         <Routes>
-  //           <Route path="/" element={<Home />}>
-  //             <Route path="dashboard" element={<Dashboard />} />
-  //             <Route path="monitor" element={<Monitor />} />
-  //             <Route path="user" element={<User />} />
-  //             <Route path="mananger" element={<Mananger />} />
-  //             <Route path="product" element={<Product />} />
-  //           </Route>
-  //           <Route path="auth" element={<Auth />}>
-  //             <Route path="signin" element={<SignIn />} />
-  //             <Route path="signup" element={<SignUp />} />
-  //           </Route>
-  //           <Route path="*" element={<ErrorPage />} />
-  //         </Routes>
-  //       </ConfigProvider>
-  //     </BrowserRouter>
-  //   );
 }
 
-export default App;
+// AppRoute 可以在屏幕尺寸变化时防止重复渲染
+const AppRoute = React.memo(function BuildRoute(props: {
+  isLogin: boolean;
+  userRole: number;
+}) {
+  const routeObjec = getRouteObject(props.isLogin, props.userRole, appRoutes);
+  const routeElement = useRoutes(routeObjec);
+  return <>{routeElement}</>;
+});

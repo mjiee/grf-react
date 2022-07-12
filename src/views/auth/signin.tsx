@@ -19,7 +19,7 @@ export function SignIn() {
   );
 
   useEffect(() => {
-    navigate("/");
+    if (isLogin) navigate("/dashboard/workspace");
   }, [isLogin]);
 
   return (

@@ -1,0 +1,22 @@
+@import "./text.module.less";
+
+@shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+@radius: 15px;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: @radius;
+  background-color: var(--color-bg-1);
+  box-shadow: @shadow;
+  margin-bottom: 20px;
+
+  &-icon {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    font-size: 80px;
+    margin: 20px;
+  }
+}

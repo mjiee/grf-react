@@ -2,7 +2,7 @@ import React from "react";
 import { Trigger } from "@arco-design/web-react";
 import { IconLanguage } from "@arco-design/web-react/icon";
 import { useGlobalConf } from "utils/index";
-import { IconWrapper } from "components/icon/index";
+import { IconWrapper } from "components/utils/iconWrapper";
 
 export function SettingLanguage(props: { position: any }) {
   const { lang, setLang } = useGlobalConf();
