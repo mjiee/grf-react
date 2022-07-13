@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "./service/store";
 import { ConfigProvider } from "@arco-design/web-react";
 import { componentConf } from "./theme/arcoConfig";
-import { useGlobalConf, getArcoLocale } from "./utils/index";
+import { getArcoLocale } from "./utils/index";
+import useGlobalConf from "./utils/globalContext";
 import { appRoutes } from "./routes";
 import { getRouteObject } from "./utils/getRouteObject";
 

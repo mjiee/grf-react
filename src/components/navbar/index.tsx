@@ -1,6 +1,6 @@
 import React from "react";
 import { Space } from "@arco-design/web-react";
-import { useGlobalConf } from "utils/index";
+import useGlobalConf from "utils/globalContext";
 import { SettingNav } from "./setting";
 import styles from "./styles/index.module.less";
 import logo from "assets/logo.svg";

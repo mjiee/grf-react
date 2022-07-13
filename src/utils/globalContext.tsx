@@ -56,6 +56,8 @@ export function ConfigProvider(props: { children: React.ReactNode }) {
 }
 
 // 获取全局属性的hook
-export const useGlobalConf = () => {
+const useGlobalConf = () => {
   return useContext<GlobalConfig>(GlobalContext);
 };
+
+export default useGlobalConf;

@@ -1,0 +1,35 @@
+@shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+@radius: 15px;
+
+.container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-column-gap: 5px;
+  width: 100%;
+  /* width: calc(100% - 30px); */
+
+  @media screen and (max-width: 1024px) {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .wrapper {
+    margin-bottom: 20px;
+    width: 95%;
+    padding: 10px;
+    border-radius: @radius;
+    box-shadow: @shadow;
+    background-color: var(--color-bg-1);
+  }
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-neutral-8);
+}
+
+.text() {
+  font-size: 16px;
+  color: var(--color-neutral-8);
+}
