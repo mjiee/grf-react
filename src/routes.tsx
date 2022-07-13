@@ -2,7 +2,7 @@ import React from "react";
 import { Home, Auth } from "./views/layout/index";
 import { SignIn, SignUp } from "./views/auth/index";
 import { Workspace, Monitor } from "./views/dashboard/index";
-import { UserList, ManangerList } from "./views/user/index";
+import { User, Mananger } from "./views/user/index";
 import { ProductList } from "./views/product/index";
 import { ErrorPage } from "./views/error/index";
 
@@ -44,22 +44,22 @@ export const appRoutes: AppRouter[] = [
         ],
       },
       {
-        name: "UserList",
+        name: "User",
         path: "user",
         isLogin: true,
         isMenu: true,
         children: [
           {
-            name: "用户列表",
+            name: "用户",
             path: "user",
-            element: <UserList />,
+            element: <User />,
             userRole: 2,
             isMenu: true,
           },
           {
-            name: "管理员列表",
+            name: "管理员",
             path: "mananger",
-            element: <ManangerList />,
+            element: <Mananger />,
             userRole: 3,
             isMenu: true,
           },
@@ -72,7 +72,7 @@ export const appRoutes: AppRouter[] = [
         isMenu: true,
         children: [
           {
-            name: "产品列表",
+            name: "产品",
             path: "product",
             element: <ProductList />,
             userRole: 3,

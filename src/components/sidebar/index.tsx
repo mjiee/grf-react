@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { Drawer } from "@arco-design/web-react";
 import { IconList } from "@arco-design/web-react/icon";
 import { useGlobalConf } from "utils/index";
-import { IconWrapper } from "components/utils/iconWrapper";
+import IconWrapper from "components/utils/iconWrapper";
 import { SideMenu } from "./sideMenu";
 import styles from "./styles/index.module.less";
 

@@ -1,9 +1,10 @@
 import React from "react";
+import EmptyPage from "components/utils/emptyPage";
 
 export function Monitor() {
   return (
-    <div>
-      <div>monitor</div>
-    </div>
+    <>
+      <EmptyPage />
+    </>
   );
 }

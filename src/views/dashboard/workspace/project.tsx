@@ -49,7 +49,7 @@ export default function Project() {
               >
                 {value.describe}
               </Typography.Paragraph>
-              <Avatar.Group size={32} style={{ marginRight: 10 }}>
+              <Avatar.Group size={32} style={{ marginRight: "5px" }}>
                 {value.userList?.map((user) => {
                   return (
                     <Avatar
@@ -61,7 +61,7 @@ export default function Project() {
                   );
                 })}
               </Avatar.Group>
-              <span>等23人</span>
+              <span style={{ color: "var(--color-neutral-6)" }}>等23人</span>
             </div>
           );
         })}

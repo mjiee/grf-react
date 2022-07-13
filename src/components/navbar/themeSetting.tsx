@@ -1,7 +1,7 @@
 import React from "react";
 import { Trigger } from "@arco-design/web-react";
 import { IconMoon, IconSun } from "@arco-design/web-react/icon";
-import { IconWrapper } from "components/utils/iconWrapper";
+import  IconWrapper  from "components/utils/iconWrapper";
 import { useGlobalConf } from "utils/index";
 
 export function SettingTheme(props: { position: any }) {
