@@ -7,15 +7,27 @@ export interface UserInfo {
   describe?: string;
 }
 
+// jwt认证信息
+export interface Auth {
+  token: string;
+  expires: number;
+  type: string;
+}
+
 export interface UserState {
   isLogin: boolean; // 是否登陆
   userInfo?: UserInfo;
+  auth?: Auth;
 }
 
-// 网站主题和语言配置
+// 用户状态配置
 const userSlice = createSlice({
   name: "config",
-  initialState: { isLogin: false, userInfo: { name: "", avatar: "", role: 3 } },
+  initialState: {
+    isLogin: false,
+    userInfo: { name: "", avatar: "", role: 3 },
+    auth: { token: "", expires: 0, type: "Bearer" },
+  },
   reducers: {
     setLogin: (state: UserState, action: PayloadAction<boolean>) => {
       state.isLogin = action.payload;
@@ -23,8 +35,11 @@ const userSlice = createSlice({
     setUserInfo: (state: UserState, action: PayloadAction<UserInfo>) => {
       state.userInfo = action.payload;
     },
+    setAuth: (state: UserState, action: PayloadAction<Auth>) => {
+      state.auth = action.payload;
+    },
   },
 });
 
-export const { setLogin, setUserInfo } = userSlice.actions;
+export const { setLogin, setUserInfo, setAuth } = userSlice.actions;
 export const userReducer = userSlice.reducer;

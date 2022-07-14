@@ -6,7 +6,7 @@ import type {
   FetchBaseQueryMeta,
 } from "@reduxjs/toolkit/query";
 import type { QueryReturnValue } from "@reduxjs/toolkit/dist/query/baseQueryTypes";
-import { setAuth } from "service/states/authSlice";
+import { setAuth } from "service/states/userSlice";
 import { RootState } from "service/store";
 
 // 数据响应类型
@@ -20,8 +20,8 @@ export interface ResponseType {
 const baseQuery = fetchBaseQuery({
   baseUrl: process.env.REACT_APP_API_URL,
   prepareHeaders: (headers: Headers, api: { getState: () => unknown }) => {
-    const token = (api.getState() as RootState).auth;
-    headers.set("Authorization", `${token.token_type} ${token.access_token}`);
+    const token = (api.getState() as RootState).user.auth;
+    headers.set("Authorization", `${token.type} ${token.token}`);
     return headers;
   },
 });
@@ -32,9 +32,9 @@ const baseQueryWithAuth: BaseQueryFn<
   unknown,
   FetchBaseQueryError
 > = async (args, api, extraOptions) => {
-  const token = (api.getState() as RootState).auth;
+  const token = (api.getState() as RootState).user.auth;
 
-  if (token.expires_at != 0 && token.expires_at - Date.now() < 1800) {
+  if (token.expires != 0 && token.expires - Date.now() < 1800) {
     const result: QueryReturnValue<
       unknown,
       FetchBaseQueryError,

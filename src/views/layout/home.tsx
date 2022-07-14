@@ -15,9 +15,7 @@ export function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isLogin) {
-      navigate("/dashboard/workspace");
-    } else {
+    if (!isLogin) {
       navigate("/auth/signin");
     }
   }, [isLogin]);
