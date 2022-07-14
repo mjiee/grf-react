@@ -6,7 +6,7 @@ import IconWrapper from "components/utils/iconWrapper";
 import { SideMenu } from "./sideMenu";
 import styles from "./styles/index.module.less";
 
-export function SideBar() {
+export default function SideBar() {
   const width = useGlobalConf().width;
 
   // 防止屏幕尺寸变化时频繁渲染
@@ -36,7 +36,7 @@ function SiderBarClose() {
         }}
         className={styles["sidebar-close"]}
       >
-        <IconWrapper>
+        <IconWrapper color="grey">
           <IconList />
         </IconWrapper>
       </div>

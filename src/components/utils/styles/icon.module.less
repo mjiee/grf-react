@@ -1,17 +1,25 @@
-.icon {
-  &-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    font-size: 20px;
-    color: var(--color-neutral-6);
-    background-color: var(--color-neutral-1);
-  }
+.icon() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: var(--color-neutral-6);
 
-  &-wrapper:hover {
+  :hover {
     background-color: var(--color-neutral-2);
   }
+}
+
+.grey {
+  .icon();
+  background-color: var(--color-neutral-1);
+}
+
+.white {
+  .icon();
+  margin: 5px;
+  background-color: var(--color-bg-1);
 }

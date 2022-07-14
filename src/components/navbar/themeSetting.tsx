@@ -21,11 +21,11 @@ export function SettingTheme(props: { position: any }) {
       >
         <div>
           {theme ? (
-            <IconWrapper>
+            <IconWrapper color="grey">
               <IconSun />
             </IconWrapper>
           ) : (
-            <IconWrapper>
+            <IconWrapper color="grey">
               <IconMoon />
             </IconWrapper>
           )}

@@ -5,7 +5,7 @@ import { SettingNav } from "./setting";
 import styles from "./styles/index.module.less";
 import logo from "assets/logo.svg";
 
-export function NavBar() {
+export default function NavBar() {
   const width = useGlobalConf().width;
 
   return (

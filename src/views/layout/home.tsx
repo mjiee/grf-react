@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "service/store";
-import { NavBar } from "components/navbar/index";
-import { SideBar } from "components/sidebar/index";
-import { Footer } from "components/footer/index";
+import NavBar from "components/navbar/index";
+import SideBar from "components/sidebar/index";
+import Footer from "components/footer/index";
 import styles from "./styles/home.module.less";
 
 export function Home() {
@@ -15,7 +15,9 @@ export function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLogin) {
+    if (isLogin) {
+      navigate("/dashboard/workspace");
+    } else {
       navigate("/auth/signin");
     }
   }, [isLogin]);

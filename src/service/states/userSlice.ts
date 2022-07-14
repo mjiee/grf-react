@@ -15,7 +15,7 @@ export interface UserState {
 // 网站主题和语言配置
 const userSlice = createSlice({
   name: "config",
-  initialState: { isLogin: true, userInfo: { name: "", avatar: "", role: 3 } },
+  initialState: { isLogin: false, userInfo: { name: "", avatar: "", role: 3 } },
   reducers: {
     setLogin: (state: UserState, action: PayloadAction<boolean>) => {
       state.isLogin = action.payload;

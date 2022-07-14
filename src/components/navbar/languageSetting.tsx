@@ -20,7 +20,7 @@ export function SettingLanguage(props: { position: any }) {
         popup={() => <p>切换语言</p>}
       >
         <div>
-          <IconWrapper>
+          <IconWrapper color="grey">
             <IconLanguage />
           </IconWrapper>
         </div>

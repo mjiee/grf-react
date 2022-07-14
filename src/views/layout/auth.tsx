@@ -1,19 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-// import React, { useEffect } from "react";
-// import { Outlet, useNavigate } from "react-router-dom";
-import { NavBar } from "components/navbar/index";
-import { Footer } from "components/footer/index";
+import NavBar from "components/navbar/index";
+import Footer from "components/footer/index";
 import styles from "./styles/auth.module.less";
 import logo from "assets/logo.svg";
 
 export function Auth() {
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   navigate("/auth/signin");
-  // }, []);
-
   return (
     <div className={styles.container}>
       <div className={styles.navbar}>
