@@ -1,10 +1,12 @@
-# gr-react
+# GRF-react
 
-[![GitHub](https://img.shields.io/github/license/mjiee/gr-react)](https://github.com/mjiee/gr-react/blob/master/LICENSE)
+[![GitHub](https://img.shields.io/github/license/mjiee/grf-react)](https://github.com/mjiee/grf-react/blob/master/LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E16.0.0-brightgreen)](https://nodejs.org/en/)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/mjiee/gr-react)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/mjiee/grf-react)
 
-gr-react是一个基于react后端管理界面, 后端系统使用[gr-gin](https://github.com/mjiee/gr-gin)。目的是为初学者提供一个清晰的web全端开发逻辑, 掌握响应式web应用开发。
+grf-react是一个基于react后端管理界面, 后端系统使用[grf-gin](https://github.com/mjiee/grf-gin)。目的是为初学者提供一个清晰的web全端开发逻辑, 掌握响应式web应用开发。
+
+在线体验：https://demo.mjiee.top/
 
 主要使用以下技术栈：
 
@@ -21,7 +23,7 @@ gr-react是一个基于react后端管理界面, 后端系统使用[gr-gin](https
 
 ```bash
 # 获取项目
-git clone https://github.com/mjiee/scaffold-react.git
+git clone https://github.com/mjiee/grf-react.git
 
 # 安装项目依赖
 yarn install --production

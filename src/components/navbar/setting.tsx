@@ -1,5 +1,7 @@
 import React from "react";
 import { Space, Trigger } from "@arco-design/web-react";
+import { IconList } from "@arco-design/web-react/icon";
+import IconWrapper from "components/utils/iconWrapper";
 import { SettingTheme } from "./themeSetting";
 import { SettingLanguage } from "./languageSetting";
 import { SettingUser } from "./userSetting";
@@ -24,11 +26,14 @@ function TopSettingClose() {
           <Space className={styles.icon} direction={"vertical"} size="small">
             <SettingLanguage position="lt" />
             <SettingTheme position="lt" />
+            <SettingUser />
           </Space>
         )}
       >
         <div>
-          <SettingUser />
+          <IconWrapper color="grey">
+            <IconList />
+          </IconWrapper>
         </div>
       </Trigger>
     </div>

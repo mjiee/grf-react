@@ -17,6 +17,10 @@ export function Home() {
   useEffect(() => {
     if (!isLogin) {
       navigate("/auth/signin");
+    } else {
+      if (window.location.pathname == "/") {
+        navigate("/dashboard/workspace");
+      }
     }
   }, [isLogin]);
 

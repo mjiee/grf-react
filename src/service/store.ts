@@ -44,7 +44,13 @@ const rtkQueryErrorLogger: Middleware = () => (next) => (action) => {
 
 // 注册中间件
 const middlewareHandler = (getDefaultMiddleware: any) => {
-  return [rtkQueryErrorLogger, ...getDefaultMiddleware(), baseApi.middleware];
+  return [
+    rtkQueryErrorLogger,
+    ...getDefaultMiddleware({
+      serializableCheck: { ignoredActions: ["persist/PERSIST"] },
+    }),
+    baseApi.middleware,
+  ];
 };
 
 // 创建store
