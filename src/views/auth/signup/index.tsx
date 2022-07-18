@@ -59,7 +59,7 @@ export function SignUp() {
           </Form.Item>
           <Form.Item>
             <Button type="primary" long htmlType="submit">
-              登陆
+              注册
             </Button>
           </Form.Item>
         </Form>

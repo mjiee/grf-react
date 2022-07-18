@@ -8,6 +8,8 @@ declare namespace NodeJS {
     readonly PUBLIC_URL: string;
     readonly REACT_APP_NAME: string;
     readonly REACT_APP_API_URL: string;
+    readonly REACT_APP_INIT_PASSWORD: string;
+    readonly REACT_APP_INIT_PHONE: string;
   }
 }
 

@@ -1,21 +1,27 @@
-import { baseApi } from "./bash";
+import { baseApi, ResponseType } from "./bash";
 
 // 用户登陆和认证
 const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    login: builder.query<any, any>({
-      query: (data: any) => `/auth/login?phone=${data.phone}&password=${data.password}`,
-      transformResponse: (response: any) => response,
+    signin: builder.query<ResponseType, { phone: string; password: string }>({
+      query: (data: { phone: string; password: string }) =>
+        `/auth/signin?phone=${data.phone}&password=${data.password}&admin=true`,
+      transformResponse: (response: ResponseType) => response,
     }),
-    register: builder.query<any, any>({
+    signup: builder.query<any, any>({
       query: (data: any) => ({
-        url: "/auth/register",
+        url: "/auth/signup",
         method: "POST",
         body: data,
       }),
-      transformResponse: (response: any) => response,
+      transformResponse: (response: ResponseType) => response,
     }),
   }),
 });
 
-export const { useLoginQuery, useRegisterQuery } = authApi;
+export const {
+  useSigninQuery,
+  useSignupQuery,
+  useLazySigninQuery,
+  useLazySignupQuery,
+} = authApi;

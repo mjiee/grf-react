@@ -5,6 +5,7 @@ import { Form, Input, Checkbox, Button, Space } from "@arco-design/web-react";
 import { IconPhone, IconLock } from "@arco-design/web-react/icon";
 import { RootState, AppDispatch } from "service/store";
 import { setLogin, setUserInfo } from "service/states/index";
+import Phone from "./phone";
 import styles from "./styles/index.module.less";
 import wechat from "assets/wechat.svg";
 import qq from "assets/qq.svg";
@@ -31,43 +32,7 @@ export function SignIn() {
             输入你的手机号和密码登陆
           </div>
         </div>
-        <Form
-          layout="vertical"
-          size={"large"}
-          onSubmit={(value: { phone: string; password: string }) => {
-            console.log(`${value.phone} and ${value.password}`);
-            dispatch(setLogin(true));
-            dispatch(setUserInfo({ name: "wang", avatar: "", role: 3 }));
-          }}
-        >
-          <Form.Item
-            field="phone"
-            rules={[{ required: true, length: 11, match: /(\d){11}/ }]}
-          >
-            <Input prefix={<IconPhone />} placeholder="手机号" />
-          </Form.Item>
-          <Form.Item
-            field="password"
-            rules={[{ required: true, minLength: 6 }]}
-          >
-            <Input.Password prefix={<IconLock />} placeholder="密码" />
-          </Form.Item>
-          <Form.Item>
-            <Space
-              className={styles["sign-btn"]}
-              size={16}
-              direction="vertical"
-            >
-              <div className={styles["sign-justify"]}>
-                <Checkbox>记住密码</Checkbox>
-                <Link to="/">忘记秘密?</Link>
-              </div>
-              <Button type="primary" long htmlType="submit">
-                登陆
-              </Button>
-            </Space>
-          </Form.Item>
-        </Form>
+        <Phone />
 
         <Space className={styles["sign-btn"]} size={16} direction="vertical">
           <div className={styles["sign-justify"]}>

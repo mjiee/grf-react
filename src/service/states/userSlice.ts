@@ -3,6 +3,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export interface UserInfo {
   name?: string;
   avatar?: string;
+  phone?: string;
+  password?: string;
   role?: number; // super: 3, admin: 2, general: 1
   describe?: string;
 }
@@ -25,7 +27,17 @@ const userSlice = createSlice({
   name: "config",
   initialState: {
     isLogin: false,
-    userInfo: { name: "", avatar: "", role: 3 },
+    userInfo: {
+      name: "",
+      avatar: "",
+      phone: process.env.REACT_APP_INIT_PHONE
+        ? process.env.REACT_APP_INIT_PHONE
+        : "",
+      password: process.env.REACT_APP_INIT_PASSWORD
+        ? process.env.REACT_APP_INIT_PASSWORD
+        : "",
+      role: 1,
+    },
     auth: { token: "", expires: 0, type: "Bearer" },
   },
   reducers: {

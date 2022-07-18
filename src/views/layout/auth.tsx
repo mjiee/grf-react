@@ -13,9 +13,7 @@ export function Auth() {
       </div>
       <div className={styles.content}>
         <Outlet />
-        <div className={styles.footer}>
-          <Footer />
-        </div>
+        <Footer />
       </div>
       <div className={styles.banner}>
         <img className={styles["banner-image"]} src={logo} alt="logo" />
