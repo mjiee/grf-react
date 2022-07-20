@@ -4,7 +4,7 @@ import { SignIn, SignUp } from "./views/auth/index";
 import { Workspace, Monitor } from "./views/dashboard/index";
 import { User, Mananger } from "./views/user/index";
 import { ProductList } from "./views/product/index";
-import { ErrorPage } from "./views/error/index";
+import { NotFound, ErrorPage } from "./views/error/index";
 
 export interface AppRouter {
   name: string; // siderbar标题
@@ -101,7 +101,12 @@ export const appRoutes: AppRouter[] = [
   },
   {
     name: "error",
-    path: "*",
+    path: "/error/:code",
     element: <ErrorPage />,
+  },
+  {
+    name: "other",
+    path: "*",
+    element: <NotFound />,
   },
 ];

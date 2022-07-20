@@ -3,7 +3,7 @@ import {
   combineReducers,
   isRejectedWithValue,
   Middleware,
-  //  MiddlewareAPI,
+  MiddlewareAPI,
 } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
 import { persistStore, persistReducer } from "redux-persist";
@@ -29,23 +29,9 @@ const persistConfig = {
 // 生成持久化存储reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// 拦截器, 拦截300 ~ 500的请求错误
-const rtkQueryErrorLogger: Middleware = () => (next) => (action) => {
-  // (api: MiddlewareAPI) => (next) => (action) => {
-  // 全局状态处理 api.dispatch() 或 api.getState()
-
-  if (isRejectedWithValue(action)) {
-    console.warn(`error: ${action.error.status} ${action.error.data.message} `);
-    // 自定义错误处理
-  }
-
-  return next(action);
-};
-
 // 注册中间件
 const middlewareHandler = (getDefaultMiddleware: any) => {
   return [
-    rtkQueryErrorLogger,
     ...getDefaultMiddleware({
       serializableCheck: { ignoredActions: ["persist/PERSIST"] },
     }),

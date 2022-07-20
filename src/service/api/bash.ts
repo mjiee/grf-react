@@ -26,14 +26,14 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
-// 自动更新认证token
+// 自定义请求拦截
 const baseQueryWithAuth: BaseQueryFn<
   string | FetchArgs,
   unknown,
   FetchBaseQueryError
 > = async (args, api, extraOptions) => {
+  // 自动更新jwt token
   const token = (api.getState() as RootState).user.auth;
-
   if (token.expires != 0 && token.expires - Date.now() < 1800) {
     const result: QueryReturnValue<
       unknown,
@@ -49,7 +49,22 @@ const baseQueryWithAuth: BaseQueryFn<
     }
   }
 
-  return await baseQuery(args, api, extraOptions);
+  // 自定义拦截器
+  const result: QueryReturnValue<any, FetchBaseQueryError, FetchBaseQueryMeta> =
+    await baseQuery(args, api, extraOptions);
+
+  const { data, error } = result;
+
+  if (error) {
+    console.log(`stauts: ${error.status}; msg: ${error.data}`);
+    if (error.status == 403) window.location.replace("/error/403");
+    if (error.status == 500) window.location.replace("/error/500");
+    window.location.replace("/other");
+  } else if (data?.status == 20001) {
+    console.log("登陆已失效, 请重新登陆");
+    window.location.replace("/auth/signin");
+  }
+  return result;
 };
 
 // api基础配置
