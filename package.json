@@ -71,7 +71,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "lint:fotmet":  "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,vue,html,md}\""
   },
   "eslintConfig": {
     "extends": [
@@ -95,9 +96,12 @@
     "@typescript-eslint/eslint-plugin": "^5.30.3",
     "@typescript-eslint/parser": "^5.30.3",
     "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "less": "^4.1.3",
-    "less-loader": "^11.0.0"
+    "less-loader": "^11.0.0",
+    "prettier": "^2.7.1"
   },
   "jest": {
     "roots": [
